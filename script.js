@@ -35,9 +35,6 @@ function getWinner(play1, play2) {
     }
 }
 
-function printCurrentScore() {
-    return `${score1} — ${score2}`;
-}
 
 function updateScoreboard(msg) {
     const para = document.createElement("p");
@@ -88,7 +85,7 @@ function playRound(play1, play2 = getRandomPlay()) {
         message =
         `You win! ${capitalize(play1)} beats ${play2}.`;
     }
-    message += ` Current score: ${printCurrentScore()}`;
+    message += ` Current score: ${score1} — ${score2}`;
     updateScoreboard(message);
     
     if (isLastRound()) {
@@ -98,7 +95,7 @@ function playRound(play1, play2 = getRandomPlay()) {
         });
         
         message =
-        `Final score: ${printCurrentScore()}. ${capitalize(winner)} wins!`;
+        `Final score: ${score1} — ${score2}. ${capitalize(winner)} wins!`;
         updateScoreboard(message);
     }
 }
